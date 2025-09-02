@@ -8,7 +8,7 @@ Também está incluída uma **collection do Postman** para facilitar os testes d
 
 ---
 
-## 🏗️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **.NET 8** com **Minimal API**  
 - **Clean Architecture** (Domain, Application, Infrastructure, API, Worker)  
@@ -24,7 +24,7 @@ Também está incluída uma **collection do Postman** para facilitar os testes d
 
 ---
 
-## ⚡ Como rodar em ambiente de desenvolvimento
+## Como rodar em ambiente de desenvolvimento
 
 ### 1. Subir os containers necessários
 ```bash
@@ -53,11 +53,11 @@ dotnet run
 ```
 
 Acesse a documentação (Swagger):  
-👉 [http://localhost:8080/swagger](http://localhost:8080/swagger)
+ [http://localhost:8080/swagger](http://localhost:8080/swagger)
 
 ---
 
-## 🔍 Health Check
+## Health Check
 A API possui endpoint de health check para monitorar o status da aplicação e dependências:
 ```http
 GET http://localhost:8080/health
@@ -65,20 +65,20 @@ GET http://localhost:8080/health
 
 ---
 
-## 📦 Mensageria com RabbitMQ
+## Mensageria com RabbitMQ
 - Eventos são **publicados** pela API.  
 - O **Worker** (consumer) processa mensagens da fila `MotorcycleRegistered`.  
 - Exemplo de uso: registrar uma moto publica um evento que é consumido e persistido no banco.
 
 ---
 
-## 🗄️ Armazenamento de Arquivos (MinIO)
+## Armazenamento de Arquivos (MinIO)
 - Arquivos são enviados para o bucket configurado no MinIO (`motorent-bucket`).  
 - O bucket é inicializado automaticamente no `docker compose`.
 
 ---
 
-## 🧪 Testes
+## Testes
 O projeto inclui testes com **xUnit**.  
 Para rodar:
 ```bash
@@ -87,10 +87,10 @@ dotnet test
 
 ---
 
-## 📂 Postman Collection
+## Postman Collection
 Na raiz do projeto você encontrará uma **collection do Postman** (`MotoRent.postman_collection.json`) para testar os endpoints da API rapidamente.
 
 ---
 
-## ✅ Resumo
+## Resumo
 O MotoRent combina **boas práticas de arquitetura** com **infraestrutura realista** (mensageria, storage, banco relacional) em um ambiente pronto para desenvolvimento local via Docker.
