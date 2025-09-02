@@ -1,0 +1,435 @@
+{
+	"info": {
+		"_postman_id": "2065556e-4012-47d8-8a23-87903d43f7bb",
+		"name": "MotoRent API",
+		"description": "Coleção de endpoints da API MotoRent",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6919940"
+	},
+	"item": [
+		{
+			"name": "Entregadores",
+			"item": [
+				{
+					"name": "Criar entregador",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Identificador",
+									"value": "ENT-12345",
+									"type": "text"
+								},
+								{
+									"key": "Nome",
+									"value": "{{$randomNamePrefix}} {{$randomNameSuffix}}",
+									"type": "text"
+								},
+								{
+									"key": "Cnpj",
+									"value": "51669437000153",
+									"type": "text"
+								},
+								{
+									"key": "Data_Nascimento",
+									"value": "1954-05-10T00:00:00Z",
+									"type": "text"
+								},
+								{
+									"key": "Numero_Cnh",
+									"value": "80475749499",
+									"type": "text"
+								},
+								{
+									"key": "Tipo_Cnh",
+									"value": "B",
+									"type": "text"
+								},
+								{
+									"key": "Imagem_Cnh",
+									"type": "file",
+									"src": "postman-cloud:///1f087526-f533-4f00-bb83-87ea34e88d17"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:52341/entregadores",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "52341",
+							"path": [
+								"entregadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar entregadores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:52341/entregadores?tipoCnh=A%2BB",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "52341",
+							"path": [
+								"entregadores"
+							],
+							"query": [
+								{
+									"key": "tipoCnh",
+									"value": "A%2BB"
+								},
+								{
+									"key": "tipoCnh",
+									"value": "A",
+									"disabled": true
+								},
+								{
+									"key": "tipoCnh",
+									"value": "B",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar entregador por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:52341/entregadores/{id}",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "52341",
+							"path": [
+								"entregadores",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar CNH do entregador",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:52341/entregadores/{id}/cnh",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "52341",
+							"path": [
+								"entregadores",
+								"{id}",
+								"cnh"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Motos",
+			"item": [
+				{
+					"name": "Criar moto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"identificador\": \"MOT-{{$randomInt}}\",\n  \"ano\": 2025,\n  \"modelo\": \"Honda CG 160\",\n  \"placa\": \"MOT-0072\"\n}"
+						},
+						"url": {
+							"raw": "https://localhost:52341/motos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "52341",
+							"path": [
+								"motos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar motos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:52341/motos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "52341",
+							"path": [
+								"motos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar moto por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:52341/motos/c1c41d1c-82bc-44fd-b531-f7fb3e9b29f8",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "52341",
+							"path": [
+								"motos",
+								"c1c41d1c-82bc-44fd-b531-f7fb3e9b29f8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover moto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:52341/motos/c1c41d1c-82bc-44fd-b531-f7fb3e9b29f8",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "52341",
+							"path": [
+								"motos",
+								"c1c41d1c-82bc-44fd-b531-f7fb3e9b29f8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar placa da moto",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"placa\": \"MQP0F99\"\n}"
+						},
+						"url": {
+							"raw": "https://localhost:52341/motos/c1c41d1c-82bc-44fd-b531-f7fb3e9b29f8/placa",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "52341",
+							"path": [
+								"motos",
+								"c1c41d1c-82bc-44fd-b531-f7fb3e9b29f8",
+								"placa"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Locações",
+			"item": [
+				{
+					"name": "Criar locação",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"entregador_id\": \"167816bc-08fe-42db-a215-549f38f0da90\",\n  \"moto_id\": \"3698aec8-ba0a-47d1-9d52-db4504b79508\",\n  \"data_inicio\": \"2025-09-02T00:00:00Z\",\n  \"data_termino\": \"2025-09-09T00:00:00Z\",\n  \"data_previsao_termino\": \"2025-09-09T00:00:00Z\",\n  \"plano\": 7\n}\n"
+						},
+						"url": {
+							"raw": "https://localhost:52341/locacao",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "52341",
+							"path": [
+								"locacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar locações",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:52341/locacao",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "52341",
+							"path": [
+								"locacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar locação por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:52341/locacao/3266ac15-013f-4dcb-8c8b-1ccadc408c3c",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "52341",
+							"path": [
+								"locacao",
+								"3266ac15-013f-4dcb-8c8b-1ccadc408c3c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Informar devolução",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data_devolucao\": \"2025-09-20T00:00:00Z\"\n}"
+						},
+						"url": {
+							"raw": "https://localhost:52341/locacao/3266ac15-013f-4dcb-8c8b-1ccadc408c3c/devolucao",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "52341",
+							"path": [
+								"locacao",
+								"3266ac15-013f-4dcb-8c8b-1ccadc408c3c",
+								"devolucao"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Health",
+			"item": [
+				{
+					"name": "Health simples",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:52341/health",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "52341",
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Health detalhado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:52341/health/details",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "52341",
+							"path": [
+								"health",
+								"details"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
